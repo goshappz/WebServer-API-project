@@ -1,10 +1,11 @@
 body {
-    background-color: black;
+    background-color: #171616;
 }
 .собака {
     width: 700px;
     height: 700px;
     border: 1px solid #000;
+    background-color: #302d2b;
     margin-left: auto;
     margin-right: auto;
 }
@@ -16,4 +17,11 @@ body {
 
 h1 {
     color: white;
+}
+
+.register-btn {
+  position: fixed;
+  top: 16px;
+  right: 125px; /* делай больше — уедет левее */
+  z-index: 1000;
 }
