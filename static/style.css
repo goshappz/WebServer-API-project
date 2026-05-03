@@ -22,6 +22,34 @@ h1 {
 .register-btn {
   position: fixed;
   top: 16px;
-  right: 125px; /* делай больше — уедет левее */
+  right: 125px;
   z-index: 1000;
+}
+
+.form-label {
+    color: white
+}
+
+.form-check-label {
+    color: white
+}
+
+.register-page {
+  padding-top: 175px;
+}
+
+.bottom-text {
+  color: #797a7a;
+}
+
+.up-text {
+    color: white;
+    font-size: 25px;
+    margin-top: 5px;
+    margin-bottom: 60px;
+}
+
+.back-btn {
+    top: 16px;
+    left: 16px;
 }
