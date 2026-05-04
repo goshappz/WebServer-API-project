@@ -12,13 +12,24 @@
         <img src="{{ image_url }}">
         <a href="/" class="btn btn-primary">Обновить</a>
     </div>
-    <div class="login">
-        <a href="/login" class="btn btn-outline-primary position-fixed top-0 end-0 mt-3 me-3">
-            <i class="bi bi-person"> Войти</i>
-        </a>
-        <a href="/register" class="btn btn-outline-primary register-btn">
-                <i class="bi bi-person"> Зарегистрироваться</i>
-        </a>
-    </div>
+    {% if current_user.is_authenticated %}
+        <div class="profile">
+            <a href="profile" class="btn btn-primary position-fixed top-0 end-0 mt-3 me-3">
+                <i class="bi bi-person-circle"> Профиль</i>
+            </a>
+            <a href="logout" class="btn btn-primary logout-btn">
+                <i class="bi bi-person-circle"> Выйти</i>
+            </a>
+        </div>
+    {% else %}
+        <div class="login">
+            <a href="/login" class="btn btn-outline-primary position-fixed top-0 end-0 mt-3 me-3">
+                <i class="bi bi-person"> Войти</i>
+            </a>
+            <a href="/register" class="btn btn-outline-primary register-btn">
+                    <i class="bi bi-person"> Зарегистрироваться</i>
+            </a>
+        </div>
+    {% endif %}
 </body>
 </html>

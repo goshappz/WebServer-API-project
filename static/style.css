@@ -53,3 +53,28 @@ h1 {
     top: 16px;
     left: 16px;
 }
+
+.login-page {
+  padding-top: 175px;
+}
+
+.btn-warm {
+    color: #DD571C;
+}
+
+.logout-btn {
+  position: fixed;
+  top: 16px;
+  right: 135px;
+  z-index: 1000;
+}
+
+.pfp {
+    margin-top: 55px;
+    width: 200px;
+    height: 200px;
+    border: 1px solid #000;
+    background-color: #302d2b;
+    margin-left: auto;
+    margin-right: auto;
+}
