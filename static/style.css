@@ -2,21 +2,51 @@ body {
     background-color: #171616;
 }
 .собака {
-    width: 700px;
-    height: 700px;
-    border: 1px solid #000;
-    background-color: #302d2b;
+    padding-top: 75px;
+    width: 800px;
+    height: 800px;
     margin-left: auto;
     margin-right: auto;
+    display: flex;
+    flex-direction: column;
 }
 .собака img{
     width: 100%;
     height: 100%;
     object-fit: contain;
 }
+.dog-background {
+    background-color: #302d2b;
+    width: 880px;
+    height: 880px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.pes {
+    display: block;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+.dog-photo {
+    flex: 1;
+    min-height: 0;
+}
+.dog-photo .dog-btn {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .2s;
+}
+
+.dog-photo:hover .dog-btn {
+  opacity: 1;
+  pointer-events: auto;
+}
 
 h1 {
     color: white;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .register-btn {
@@ -70,11 +100,39 @@ h1 {
 }
 
 .pfp {
-    margin-top: 55px;
+    margin-left: 50px;
     width: 200px;
     height: 200px;
     border: 1px solid #000;
     background-color: #302d2b;
+}
+
+.rectangle {
+    margin-top: 55px;
+    width: 1500px;
+    height: 3000px;
+    border: 1px solid #000;
+    background-color: #302d2b;
     margin-left: auto;
     margin-right: auto;
+}
+
+.about {
+    width: 800px;
+    height: 300px;
+    border: 1px solid #000;
+    background-color: #302d2b;
+}
+
+.profile-top{
+  padding-top: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 100px;
+  margin-top: 55px;
+}
+
+.like {
+    transform: translate(-70px);
 }

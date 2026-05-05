@@ -7,11 +7,18 @@
     <link href="static/style.css" rel="stylesheet" >
 </head>
 <body>
-    <div class="собака">
-        <h1>Рандомная собака</h1>
-        <img src="{{ image_url }}">
-        <a href="/" class="btn btn-primary">Обновить</a>
+    <div class="dog-background">
+        <div class="собака">
+            <h1>Рандомная собака</h1>
+            <div class="dog-photo position-relative">
+              <img src="{{ image_url }}" class="dog-img rounded">
+              <a href="/save" class="btn btn-primary dog-btn position-absolute like">
+                    <i class="bi bi-heart"></i>
+              </a>
+            </div>
+        </div>
     </div>
+    <a href="/" class="btn btn-primary pes">Обновить</a>
     {% if current_user.is_authenticated %}
         <div class="profile">
             <a href="profile" class="btn btn-primary position-fixed top-0 end-0 mt-3 me-3">

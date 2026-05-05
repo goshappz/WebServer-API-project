@@ -18,6 +18,7 @@ login_manager.init_app(app)
 login_manager.login_view = "login"
 login_manager.login_message = "Сначала войдите в аккаунт"
 
+k = list()
 
 @login_manager.user_loader
 def load_user(user_id):
@@ -41,6 +42,8 @@ def login():
         if db_sess.query(User).filter(User.name == ident, User.password == password).first():
             login_user(db_sess.query(User).filter(User.name == ident).first())
             return redirect("/")
+        else:
+            return render_template('login.html', login_error=" Неверный логин или пароль")
     return render_template("login.html")
 
 
@@ -60,7 +63,7 @@ def register():
         user.password = password
         db_sess.add(user)
         db_sess.commit()
-        redirect("/")
+        return redirect("/")
     return render_template("register.html")
 
 @app.route("/logout")
@@ -73,5 +76,10 @@ def logout():
 @app.route("/profile")
 def profile():
     return render_template("profile.html")
+@login_required
+@app.route("/save")
+def save_picture():
+    image_url = request.form.get("image_url")
+    
 if __name__ == '__main__':
     app.run(port=8080, host='127.0.0.1')
