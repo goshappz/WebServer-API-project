@@ -108,9 +108,8 @@ h1 {
 }
 
 .rectangle {
-    margin-top: 55px;
     width: 1500px;
-    height: 3000px;
+    min-height: 300px;
     border: 1px solid #000;
     background-color: #302d2b;
     margin-left: auto;
@@ -134,5 +133,24 @@ h1 {
 }
 
 .like {
-    transform: translate(-70px);
+    transform: translate(725px, -650px);
+}
+
+.dogs-unpacking {
+    height: 220px;
+    object-fit: contain;
+}
+
+.account_name {
+    color: white;
+    font-size: 25px;
+    transform: translate(40px, 200px);
+}
+
+.text1 {
+    margin-bottom: 45px;
+    color: white;
+    font-size: 25px;
+    text-align: center;
+    margin-top: 50px;
 }

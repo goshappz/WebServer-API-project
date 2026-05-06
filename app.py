@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect
 from data import db_session
 from data.users import User
+from data.dogs import SavedDog
 from flask_login import (LoginManager, login_user, logout_user, login_required, current_user)
 import requests
 import os
@@ -19,6 +20,7 @@ login_manager.login_view = "login"
 login_manager.login_message = "Сначала войдите в аккаунт"
 
 k = list()
+
 
 @login_manager.user_loader
 def load_user(user_id):
@@ -66,20 +68,30 @@ def register():
         return redirect("/")
     return render_template("register.html")
 
+
 @app.route("/logout")
 @login_required
 def logout():
     logout_user()
     return redirect("/")
 
+
 @login_required
 @app.route("/profile")
 def profile():
-    return render_template("profile.html")
+    dogs = db_sess.query(SavedDog).filter(SavedDog.user_id == current_user.id).all()
+    return render_template("profile.html", dogs=dogs)
+
+
 @login_required
-@app.route("/save")
+@app.route("/save", methods=["POST"])
 def save_picture():
     image_url = request.form.get("image_url")
-    
+    dog = SavedDog(user_id=current_user.id, image_url=image_url)
+    db_sess.add(dog)
+    db_sess.commit()
+    return redirect("/")
+
+
 if __name__ == '__main__':
     app.run(port=8080, host='127.0.0.1')

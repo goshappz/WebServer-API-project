@@ -12,9 +12,12 @@
             <h1>Рандомная собака</h1>
             <div class="dog-photo position-relative">
               <img src="{{ image_url }}" class="dog-img rounded">
-              <a href="/save" class="btn btn-primary dog-btn position-absolute like">
-                    <i class="bi bi-heart"></i>
-              </a>
+                <form method="post" action="/save">
+                    <input type="hidden" name="image_url" value="{{ image_url }}">
+                    <button type="submit" class="btn btn-primary dog-btn position-absolute like">
+                        <i class="bi bi-heart"></i>
+                    </button>
+                </form>
             </div>
         </div>
     </div>

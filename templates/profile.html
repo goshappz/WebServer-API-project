@@ -10,13 +10,28 @@
 <body>
     <div class="profile-top">
         <div class="pfp">
-
+            <div class="account_name">
+            <b> {{ current_user.name }}</b>
+            <form method="post" action="/load_pfp">
+                <input class="form-control" type="file" name="pfp" accept="image/*" required>
+                <button type="submit" class="btn btn-primary">
+                    <i class="bi bi-upload"></i>
+                </button>
+            </form>
+            </div>
         </div>
         <div class="about">
     </div>
     </div>
-    <div class="rectangle">
-
+    <p class="text1">Сохраненные собаки</p>
+    <div class="rectangle row row-cols-2 row-cols-md-3 row-cols-lg-5 g-3">
+        {% for dog in dogs %}
+        <div class="col">
+            <div class="card">
+                <img src="{{ dog.image_url }}" class="dogs_unpacking">
+            </div>
+        </div>
+        {% endfor %}
     </div>
 
     <a href="/" class="btn btn-outline-primary position-fixed back-btn">
